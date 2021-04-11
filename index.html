@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+
+<!-- ================Navbar============ -->
+    <header id="nav_bar" class="nav_bar">
+        <div class="logo">
+            <a href="#">
+                <p class="logo_text"><span><i class="fas fa-cloud-moon-rain"></i></span> <span>طقس</span> <span>و</span> <span>فلك</span></p>
+            </a>
+        </div>
+        <div class="lang">
+            <div class="displayed-lang">
+                <span class="lang-displayed-now">English</span>
+                <span class="show-langs-btn"><i class="fas fa-sort-down"></i></span>
+            </div>
+            <div class="all-langs">
+                <span class="en_btn" onclick="en_Weather()">English</span>
+                <span class="ar_btn" onclick="ar_Weather()">عربي</span>
+            </div>
+            
+        </div>
+        <div class="menu_bars">
+            <i class="fas fa-bars fa-2x"></i>
+        </div>
+    </header>
+
+    <div class="side-menu">
+        <div class="title weather-title">
+            <h1></h1>
+        </div>
+    </div>
+
+
+    <div class="all-page-container">
+
+        <!-- ===================weather-ptayer section============= -->
+            <section id="container" class="container">
+        
+                <div class="main-header-location">
+                    <form action="" class="location_determine">
+                        <div class="manaul_location_determine">
+                            <input type="text" placeholder="City..." class="city_input" value="" >
+                            <button class="city_search" type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="prev-cities">
+                            <span class="close-suggests">&times;</span>
+                        </div>
+                    </form>
+        
+                    <div class="location_display">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="location">
+                            <span class="city"></span> , <span class="country"></span>
+                        </div>
+                    </div>
+        
+                    <div class="my_location">
+                        My Location 
+                    </div>
+                </div>
+        
+                <!-- <div class="error-in-fetching-data">error</div> -->
+                <div class="display-weather-prayer-info">
+        
+                    <div class="weather-area display-area">
+                        <div class="header-tap">
+                            <div class="now"></div>
+                            <div class="_48hours"></div>
+                            <div class="_8days"></div>
+                        </div>
+                        <div class="weather-data weather-data-section data-section"> 
+                            
+                            <div class="current show">
+                                <div class="icon"></div>
+                                <!-- <div class="icon-temp">20 <sup>o</sup>C</div> -->
+                                <div class="description"></div>
+                                <div>
+                                    <div class="act-temp"></div>
+                                    <div class="feel-temp"></div>
+                                </div>
+                                <div class="rain_amount"></div>
+                                <div class="wind">
+                                    <div class="speed"></div>
+                                    <div class="direction"></div>
+                                </div>
+                                <div class="humidity"></div>
+                                <div class="visibility"></div>
+                                <div class="pressure"></div>
+                            </div>
+            
+                            <div class="hourly-forecast">
+                                <datails class="hours" close>
+                                    <summary>
+                                        <div class="hour_in_day">
+                                            <div class="h"></div>
+                                            <div class="day_name"></div>
+                                        </div>
+                                        <div class="hour-data">
+                                            <bdi><span class="h-temp"></span></bdi> 
+                                            <bdi><span class="h-icon"></span></bdi>
+                                            <span><i class="fas fa-sort-down"></i></span>
+                                        </div>
+                                    </summary>
+                                    <div class="current show">
+                                        <div class="icon">icon</div>
+                                        <div class="description"></div>
+                                        <div>
+                                            <div class="act-temp"></div>
+                                            <div class="feel-temp"></div>
+                                        </div>
+                                        <div class="rain_amount"></div>
+                                        <div>
+                                            <div class="speed"></div>
+                                            <div class="direction"></div>
+                                        </div>
+                                        <div class="humidity"></div>
+                                        <div class="visibility"></div>
+                                        <div class="pressure"></div>
+                                    </div>
+                                </datails>
+                            </div>
+            
+                            <div class="daily-forecast">
+                                <div class="abbr">
+                                    <div class="day-abbr">
+                                        <div class="day-abbr2">
+                                            <div class="day">
+                                                <div class="d"></div>
+                                            </div>
+                                            <div class="day-data">
+                                                <bdi><span class="d-temp"></span></bdi>
+                                                <span class="d-icon"></span>
+                                                <span class="details-icon"></span>
+                                            </div>
+                                        </div>
+                                    </div>                 
+                                </div> 
+                                <div class="details">
+                                    <span class="go_back">&times</i></span>
+            
+                                    <div class="controls">
+                                        <div class="pre">
+                                            <span><i class="far fa-caret-square-left"></i></span>
+                                        </div>
+                                        <h3 class="the_day"></h3>
+                                        <div class="next">
+                                            <span><i class="far fa-caret-square-right"></i></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="current">
+                                        <div class="icon"></div>
+                                        <div class="description"></div>
+                                        <div>
+                                            <bdi><div class="max-temp"></div></bdi>
+                                            <bdi><div class="min-temp"></div></bdi>
+                                        </div>
+                                        <div class="rain_cahnce"></div>
+                                        <div class="rain_amount"></div>
+                                        <div>
+                                            <div class="speed"></div>
+                                            <div class="direction"></div>
+                                        </div>
+                                        <div class="pressure"></div>
+                                        <div class="humidity"></div>
+                                    </div>
+            
+                                </div> 
+                            </div>
+            
+                        </div>
+                        <div class="weather-lable lable active"> 
+                            <div class="lable-content">
+                                <div class="animated-arrow">
+                                    <span></span>
+                                    <!-- <span></span> -->
+                                </div>
+                                <div class="lable-text">
+                                    <span>click [weather]</span>
+                                </div>
+                                <div class="animated-arrow">
+                                    <span></span>
+                                    <!-- <span></span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="prayer-timings display-area">
+                        <div class="prayer-lable lable active"> 
+                            <div class="lable-content">
+                                <div class="animated-arrow">
+                                    <span></span>
+                                    <!-- <span></span> -->
+                                </div>
+                                <div class="lable-text">
+                                    <span>click [prayer]</span>
+                                </div>
+                                <div class="animated-arrow">
+                                    <span></span>
+                                    <!-- <span></span> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-tap">
+                            <div class="header-today-prayers">today-prayers</div>
+                            <div class="header-month-prayer">march-prayer</div>
+                        </div>
+                        <div class="prayer_time_settings">
+                            <div class="prayer_time_settings_content">
+                                <div class="prayer_method">
+                                    <div class="prayer_method_header">
+                                        <h2>select method</h2>
+                                    </div>
+                                    <select name="prayer_method" id="" class="prayer_method">
+                                        <option value="0"></option>
+                                        <option value="1"></option>
+                                        <option value="2"></option>
+                                        <option value="3"></option>
+                                        <option value="4"></option>
+                                        <option value="5" selected></option>
+                                        <option value="6"></option>
+                                        <option value="7"></option>
+                                        <option value="8"></option>
+                                        <option value="9"></option>
+                                        <option value="10"></option>
+                                        <option value="11"></option>
+                                        <option value="12"></option>
+                                        <option value="13"></option>
+                                    </select>
+                                </div>
+                                <hr>
+                                <div class="prayer_school">
+                                    <div class="prayer_school_header">
+                                        <h2>select school</h2>
+                                    </div>
+                                    <select name="prayer_school" id="">
+                                        <option value="0"></option>
+                                        <option value="1"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="prayer_time_settings_icon"><i class="fas fa-cog"></i></div>
+                        </div>
+                        <div class="prayer-data-section data-section">
+                            <div class="today-prayer-timing">
+                                <div class="comming-prayer">
+                                    <h2><span class="comming-prayer-name"></span> <span class="coming_prayer_after"></span></h2>
+                                    <div class="prayer-remainning-time-container">
+                                        <div class="prayer-remainning-time">
+                                            <div class="remainning remaining-hours">
+                                                <span>00</span>
+                                                <span>hours</span>
+                                            </div>
+                                            <div class="remainning remaining-minutes">
+                                                <span>00</span>
+                                                <span>minutes</span>
+                                            </div>
+                                            <div class="remainning remaining-sec">
+                                                <span>00</span>
+                                                <span>seconds</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="all-today">
+                                    <div class="today-date">
+                                        <span>sat</span>
+                                        <span>13 mar 2021</span>
+                                        <span>29 ragab 1442</span>
+                                    </div>
+                                    <div class="full-today-prayers">
+                                        <div>
+                                            <span>fajer</span>
+                                            <span>00:00</span>
+                                        </div>
+                                        <div>
+                                            <span>sunrise</span>
+                                            <span>00:00</span>
+                                        </div>
+                                        <div>
+                                            <span>dohre</span>
+                                            <span>00:00</span>
+                                        </div>
+                                        <div>
+                                            <span>asre</span>
+                                            <span>00:00</span>
+                                        </div>
+                                        <div>
+                                            <span>maghrib</span>
+                                            <span>00:00</span>
+                                        </div>
+                                        <div>
+                                            <span>ishaa</span>
+                                            <span>00:00</span>
+                                        </div>
+                                    </div>
+            
+                                </div>
+                                <div class="prayer-method">
+                                    <span>methode: </span>
+                                    <span>Egyptian General Authority of Survey</span>
+                                </div>
+                            </div>
+                            <div class="current-month-prayer-timings">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+        
+            </section>
+
+    </div>
+
+    <script src="main.js">
+    </script>
+</body>
+</html>

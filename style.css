@@ -1,0 +1,993 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+}
+
+body{
+    background-color: rgb(8, 2, 2);
+}
+
+/* ============================Header===============================*/
+.nav_bar{
+    direction: rtl;
+    height: 60px;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+#container .title{
+    width: 100%;
+    background-color: #ff2877;
+    padding-bottom: 10px;
+    border-radius:  0 0 20px 20px;
+    margin-bottom: 10px;
+}
+
+#container h1{
+    margin: 0px 20px 5px 0px;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    letter-spacing: 5px;
+}
+
+/* ===========================language setttings============ */
+.lang{
+    background-color: blue;
+    color: #fff;
+    position: relative;
+}
+
+.displayed-lang span{
+    text-align: center;
+    display: inline-block;
+    /* padding: 5px; */
+    font-weight: 400;
+    font-size: 16px;
+}
+.displayed-lang span:nth-child(1){  
+    width: 50px;
+}
+
+.displayed-lang span:nth-child(2){
+    width: 20px;
+    cursor: pointer;
+    background-color: #666;
+}
+
+
+.all-langs{
+    display: none;
+}
+
+.all-langs.active{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #666;
+    position: absolute;
+    width: 100%;
+    z-index: 2000;
+    text-align: center;
+}
+
+.all-langs.active span{
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+}
+.all-langs.active span:nth-child(1){
+    border-bottom: 1px solid #000;
+}
+
+.all-langs.active span:hover{
+    background-color: rgb(170, 170, 253);
+}
+
+
+.menu_bars{
+    cursor: pointer;
+}
+.menu_bars:hover{
+    opacity: 0.7;
+}
+/* =========================side-menu================== */
+.side-menu{
+    height: calc(100vh - 60px);
+    width: 20%;
+    background-color: #555;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 5000;
+}
+
+@media screen and (max-width: 768px){
+    .side-menu{
+        width: 60%;
+        position: absolute;
+        top: 60px;
+        left: -100%;
+        opacity: 0;
+        transition: 0.4s;
+    }
+
+    .side-menu.active{
+        left: 0;
+        opacity: 1;
+        transition: 0.4s;
+    }
+}
+
+/* ================menu_icon===================== */
+
+.menu_icon{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 0;
+    left: 100%;
+    display: none;
+} 
+
+.menu_icon span{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu_icon .show_menu.hide{
+    display: none;
+}
+
+.menu_icon .close_menu.hide{
+    display: none;
+}
+
+
+/* ============ all-page-container ======================= */
+.all-page-container{
+    width: 80%;
+    position: relative;
+    left: 20%;
+}
+
+@media screen and (max-width: 768px){
+    .all-page-container{
+        width: 100%;
+        position: static;
+        /* left: 0; */
+    }
+}
+
+/* ============ Container ======================= */
+
+#container{
+    position: relative;
+    top: 60px;
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+/* ===================main-header-location=========== */
+
+.main-header-location{
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 30% 50% 20%;
+    grid-auto-rows: 40px;
+    gap: 1px;
+}
+
+.location_display
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.fa-map-marker-alt
+{
+    margin: 0 8px;
+    color: greenyellow;
+}
+
+.location_determine
+{
+    
+}
+
+.manaul_location_determine{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 20px;
+}
+
+.city_input, .city_search{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: #111;
+    
+}
+
+.city_input{
+    width: 80%;
+    border-bottom: 1px solid #ddd;
+    text-align: start;
+    padding: 0 10px;
+}
+
+.city_search{
+    width: 20%;
+    text-align: center;
+}
+
+
+.my_location {
+    color: #000;
+    outline: none;
+    box-shadow: none;
+    padding: 0 5px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: greenyellow;
+}
+
+.my_location.active {
+    background-color: rgb(152, 93, 211);
+    color: #fff;
+    font-weight: 700;
+}
+
+.prev-cities{
+    display: none;
+    opacity: 0;
+}
+.prev-cities.active{
+    display: block;
+    opacity: 1;
+    width: 30%;
+    max-height: 200px;
+    overflow: auto;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    z-index: 4000;
+    background-color: #ddd;
+    transition: 0.8s;
+}
+
+.prev-cities  div{
+    border-bottom: 1p solid #000;
+    cursor: pointer;
+    padding: 5px 10px;
+ }
+ .prev-cities  div:hover{
+     color: #fff;
+    background-color: blueviolet;
+    box-shadow: 0 0 5px;
+ }
+
+.close-suggests{
+    font-size: 28px;
+    display: inline-block;
+    padding: 0 5px;
+    cursor: pointer;
+    text-align: end;
+}
+
+
+@media screen and (max-width: 768px){
+    .main-header-location{
+        grid-template-columns: 70% 30%;
+    }
+    .location_display{
+        grid-area: 2 / 1 / 3 / 3;
+    }
+
+    .prev-cities.active{
+        width: 70%;
+    }
+}
+
+
+/* ===================display-weather-prayer-info============== */
+
+.display-weather-prayer-info{
+    height: calc(100vh - 40px);
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.display-area
+{
+    width: 49.6%;
+    height: 100%;
+    overflow: auto;
+}
+
+.lable{
+    display: none;
+}
+
+.header-tap{
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    background-color: #FFF;
+    color: #000;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    column-gap: 1px;
+    justify-content: center;
+    align-items: center; 
+    font-weight: 700;
+}
+
+.header-tap > div{
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    height: 100%;
+    line-height: 40px;
+    text-align: center;
+}
+
+.now{
+    line-height: 16px !important;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.header-tap > div.active{
+    background-color: #ddd !important;
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+}
+
+.header-tap .now small{
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.data-section
+{
+    height: calc(100% - 40px);
+    overflow: hidden;
+    width: 100%;
+    background-size: cover;
+    position: relative;
+}
+
+
+.data-section > div {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* padding: 0 10px !important; */
+    /* opacity: 0; */
+    transition: 0.4s ease-in-out;
+    background-size: cover;
+}
+
+.data-section > div.show{
+    display: block !important;
+    opacity: 1 !important;
+    z-index: 10;
+    transition: 0.4s ease-in-out;
+}
+
+.weather-data-section > div{
+    background: url('./images/1\ \(5\).jpg');
+    background-size: cover;
+}
+
+@media screen and (max-width: 768px){
+    .display-weather-prayer-info{
+        flex-direction: column;
+        height: calc(100vh - 141px);
+        justify-content: space-between;
+    }
+
+    .display-area {
+        width: 100%;
+        height: 50%;
+        transition: 0.8s;
+    }
+
+    .display-area .lable.active{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+        color: #fff;
+        font-weight: 700;
+        text-transform: capitalize;
+        text-align: center;
+     }
+
+     .display-area .lable.active .lable-content{
+         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 40px;
+     }
+
+     .display-area .lable.active .lable-content .animated-arrow span{
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-top: 3px solid #fff;
+        border-right: 3px solid #fff;
+        line-height: 40px;
+        box-shadow: 1px 1px 30px #fff;
+     }
+
+     .weather-area .lable.active .lable-content .animated-arrow span{
+        transform: rotate(-45deg);
+        animation: arrow-anmi 0.7s ease-in-out infinite alternate ;
+
+     }
+     .prayer-timings .lable.active .lable-content .animated-arrow span{
+        transform: rotate(-45deg);
+        animation: arrow-anmi2 0.7s ease-in-out 0.7s infinite alternate ;
+     }
+
+     @keyframes arrow-anmi {
+         0%{
+            transform: translateY(3px) rotate(135deg);
+         }
+         100%{
+            transform: translateY(-2px) rotate(135deg);
+         }
+     }
+
+     @keyframes arrow-anmi2 {
+         0%{
+            transform: translateY(3px) rotate(-45deg);
+         }
+         100%{
+            transform: translateY(-2px) rotate(-45deg);
+         }
+     }
+
+     .display-area .lable.active .lable-text{
+        width: 50%;
+     } 
+
+     .display-area .header-tap{
+        height: 0;
+    }
+
+    .display-area.full-screen-mood {
+        height: 90%;
+    }
+    .display-area.full-screen-mood .header-tap{
+        height: 40px;
+    }
+
+    /* .display-area.full-screen-mood .lable{
+       display: none;
+    } */
+
+    .display-area.min-screen-mood {
+        height: 10%;
+    }
+
+   
+
+    .display-area.min-screen-mood .header-tap,
+    .display-area.min-screen-mood .data-section{
+        height: 0;
+    }
+
+    .display-area.min-screen-mood .lable{
+        height: 100%;
+        text-align: center;
+    }
+
+
+}
+
+/* ============================== weather-data-section Inner ================ */
+
+/* -------------------------------- current ----------------------- */
+.weather-data-section .current > div:not(.icon):not(.description)
+{
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px;
+    color: #000;
+    border: 1px solid #000;
+    background-color: rgb(0 0 0 / 20%);
+}
+
+.weather-data-section .icon{
+    border-bottom: none !important;
+    padding: 0 !important;
+}
+
+.weather-data-section .icon img{
+    width: 80px;
+    height: 80px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.weather-data-section .description{
+    display: block !important;
+    width: 100%;
+    text-align: center;
+    padding: 0 0 10px !important;
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+}
+
+.weather-data-section .current span:first-child{
+    width: 60%;
+}
+
+.weather-data-section .current span:last-child{
+    width: 40%;
+    text-align: center;
+    padding: 0 5px;
+}
+
+.weather-data-section .current .speed span{
+    background-color: transparent;
+}
+
+.max-temp,.act-temp,.speed{
+    border-bottom: none !important;
+}
+
+.act-temp bdi, .feel-temp bdi{
+    width: 40%;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px){
+    .weather-data-section .current{
+        overflow: hidden;
+    }
+
+    /*
+   .weather-data-section .current > div:not(.icon):not(.description):not(.icon-temp){
+        height: 0;
+    }
+
+    .icon{
+        padding-top: 20px;
+        height: 50%;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    } */
+}
+
+/* --------------------Hourly-Forecast------------------------------- */
+.hourly-forecast{
+    max-height: 100% !important;
+    overflow: auto; 
+}
+.hours{
+    display: block;
+    border-bottom: 1px solid rgb(17, 17, 17, 0.4);
+    padding: 0;
+    margin: 5px;
+}
+
+summary{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+}
+.hours .h{
+    padding-bottom: 5px 0;
+    font-weight: 500;
+}
+.hours img{
+    width: 30px;
+    height: 30px;
+}
+
+.hour-data > span {
+    display: inline-block;
+}
+
+.display-area .weather-data .hours .current{
+    display: none;
+}
+
+.display-area .weather-data .hours .current  div{
+    color: #000 !important;
+}
+.display-area .weather-data .hours .current.show{
+    display: block;
+    background-color: rgba(221, 221, 221, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #000;
+}
+
+
+/* ---------------- Daily-Forecast ----------------*/
+
+.daily-forecast{
+    position: relative;
+}
+
+.abbr{
+    transition: 0.4s;
+    height: 100%;
+    overflow: auto;
+    font-weight: 700;
+}
+
+.day-abbr{
+    cursor: pointer;
+    padding: 5px 0;
+    line-height: 1.3;
+}
+
+.day-abbr2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.5);
+    cursor: pointer;
+}
+
+.day-abbr .d{
+    padding: 0 10px ;
+}
+.d-temp{
+    padding: 5px;
+}
+.day-abbr .day-data img{
+    width: 40px;
+    height: 40px;
+}
+.day-abbr .day-data > span {
+    display: inline-block;
+}
+
+.details-icon{
+    margin: 0 10px !important;
+    cursor: pointer;
+}
+
+/* ------------- day details ---------- */
+
+.daily-forecast .details{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    transition: 0.4s;
+    background-color: #ddd;
+}
+
+
+.daily-forecast .details .current div{
+    color: #000 !important;
+}
+
+.daily-forecast .details.show{
+    position: absolute;
+    z-index: 1000;
+    overflow-y: auto;
+    top: 0;
+    left: 0;
+    transition: 0.4s;
+}
+
+.details.show .current{
+    padding: 0 10px;
+}
+
+
+.go_back{
+    margin-right: 20px;
+    cursor: pointer;
+    display: block;
+    text-align: right;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.the_day{
+    line-height: 1;
+}
+
+.d, .details-icon{
+    display: inline-block;
+}
+
+.controls{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.controls > div{
+color: #111;
+cursor: pointer;
+}
+
+.controls > div i{
+font-size: 26px;
+font-weight: 700;
+
+}
+
+
+/* =======================prayer-timings================= */
+
+.prayer-timings{
+    position: relative;
+}
+.prayer_time_settings{
+    display: flex;
+    height: calc(100% - 40px);
+    overflow: auto;
+    position: absolute;
+    top: 40px;
+    left: -300px;
+    z-index: 3000;
+    transition: 0.2s ease-in-out;
+}
+
+
+
+.prayer_time_settings.active{
+    left: 0;
+}
+
+.prayer_time_settings h2{
+    font-size: 20px;
+    font-weight: 500;
+    color: #f7f7f7;
+}
+.prayer_time_settings hr{
+    opacity: 0.5;
+    height: 1px;
+    margin-top: 15px;
+}
+
+.prayer_time_settings select{
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.prayer_time_settings_content{
+    background-color: #333;
+    padding: 10px;
+    width: 300px;
+    overflow-x: auto;
+    opacity: 0;
+}
+
+.prayer_time_settings.active .prayer_time_settings_content{
+    opacity: 1;
+}
+
+.prayer_time_settings_icon{
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.prayer-data-section{
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/prayer/1\ \(5\).jpg');
+    background-size: cover;
+}
+
+.today-prayer-timing{
+    width: 100%;
+    /* padding: 30px 0 0; */
+}
+
+.comming-prayer{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.comming-prayer h2{
+    text-transform: capitalize;
+    color: #eee;
+}
+
+.comming-prayer .prayer-remainning-time-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* margin-top: 15px; */
+}
+.comming-prayer .prayer-remainning-time{
+    max-width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comming-prayer .prayer-remainning-time > div{
+    margin: 1px;
+}
+
+.remainning{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(141, 179, 54);
+    width: 90px;
+    color: rgb(12, 6, 37);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.remainning span:nth-child(1){
+    padding: 10px 0;
+    letter-spacing: 3px;
+    font-weight: 900;
+    font-weight: 24px;
+}
+.remainning span:nth-child(2){
+    box-shadow: 0 -1px 1px #eee;
+}
+
+.all-today{
+    padding: 20px 0 0 0;
+    margin-top: 20px;
+}
+
+.today-date{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+
+.today-date span:nth-child(1){
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+    padding: 0;
+}
+.full-today-prayers{
+    width: 100%;
+    padding: 10px 5px;
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    column-gap: 3px;
+}
+.full-today-prayers div{
+    background-color: rgb(0, 0, 0, 0.3);
+    display: grid;
+    text-align: center;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.full-today-prayers div span{
+    padding: 5px 0;
+}
+
+.full-today-prayers div span:first-child{
+    border-bottom: 1px solid #999;
+    color: #ddd;
+}
+
+.full-today-prayers div span:last-child{
+    color: #fff;
+}
+
+
+.prayer-method{
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-transform: capitalize;
+    margin-top: 20px;
+}
+
+
+.error-in-fetching-data{
+    display: none;
+}
+
+.error-in-fetching-data.active{
+    display: block;
+    position: absolute;
+    top: 46px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 100px);
+    padding: 15px 10px;
+    background-color: #555;
+    z-index: 1999;
+}
+
+
+.btn_show_location_input{
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+
